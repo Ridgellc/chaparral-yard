@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Chaparral Yard Co. | Example landscaping site</title>
+<meta name="description" content="Example website for a San Luis Obispo County landscaper: lawn revival, drought-tolerant yards, patios and lighting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#top">Chaparral <span>Yard Co.</span></a>
+  <span class="example-tag">Example site</span>
+  <nav class="bar-links">
+    <a href="#work">Our yards</a>
+    <a href="#price">Price my yard</a>
+    <a href="#water">Water bill</a>
+  </nav>
+  <button class="btn btn-solid" data-book>Book a walkthrough</button>
+</header>
+
+<main id="top">
+
+  <!-- Hero: the lawn comes back to life as you scroll -->
+  <section class="hero" aria-label="Before and after">
+    <div class="hero-stage">
+      <img class="hero-img hero-before" src="img/p27-before.jpg" alt="A front yard with a dry, brown lawn">
+      <img class="hero-img hero-after" src="img/p27.jpg" alt="The same front yard with a thick, striped green lawn">
+      <div class="sprinkler" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <h1 class="hero-title">
+          <span class="line line-a">Brown by August?</span>
+          <span class="line line-b">Green by next week.</span>
+        </h1>
+        <p class="hero-sub">Lawn revival, drought-tolerant yards, patios and lighting across San Luis Obispo County.</p>
+        <div class="hero-actions">
+          <button class="btn btn-solid" data-book>Book a free walkthrough</button>
+          <a class="btn btn-ghost" href="#price">Price my yard</a>
+        </div>
+      </div>
+
+      <div class="hero-meter" aria-hidden="true">
+        <span class="meter-label">Scroll to water it</span>
+        <span class="meter-track"><span class="meter-fill"></span></span>
+      </div>
+      <button class="compare-toggle" type="button" aria-pressed="false">Show after</button>
+    </div>
+  </section>
+
+  <!-- Project reel: one yard per screen -->
+  <section class="reel" id="work" aria-label="Recent yards">
+    <div class="reel-stage">
+      <div class="reel-photos">
+        <img src="img/p17.jpg" alt="Backyard pool at dusk with lit hedges and a lawn edge" class="is-on">
+        <img src="img/p09.jpg" alt="Covered patio lit at night beside a small lawn">
+        <img src="img/p04.jpg" alt="Curving brick paver path through a planted garden">
+        <img src="img/p13.jpg" alt="Front yard planted with gravel, boulders and low-water shrubs">
+        <img src="img/p14.jpg" alt="Pool garden with palms, lawn and lounge chairs">
+      </div>
+      <div class="reel-shade" aria-hidden="true"></div>
+      <h2 class="reel-title">Yards we've brought back</h2>
+      <article class="spec" aria-live="polite">
+        <p class="spec-town">Avila Beach</p>
+        <h3 class="spec-name">Pool yard, after dark</h3>
+        <dl class="spec-grid">
+          <div><dt>Work</dt><dd class="spec-work">Lighting, hedges, lawn edge</dd></div>
+          <div><dt>Size</dt><dd class="spec-size">2,400 sq ft</dd></div>
+          <div><dt>Time</dt><dd class="spec-time">3 weeks</dd></div>
+          <div><dt>Water</dt><dd class="spec-water">-35%</dd></div>
+        </dl>
+        <button class="btn btn-small" data-book>Want this yard?</button>
+      </article>
+      <ol class="reel-dots" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li><li></li></ol>
+    </div>
+  </section>
+
+  <!-- Tool 1: price estimator -->
+  <section class="tool" id="price">
+    <div class="tool-head">
+      <h2>Price my yard</h2>
+      <p>Pick the area you want redone and what you want in it. You get a real range before anyone comes out.</p>
+    </div>
+    <div class="tool-body">
+      <form class="tool-form" id="priceForm" onsubmit="return false">
+        <label class="field">
+          <span class="field-row"><span>Area to redo</span><output id="areaOut">1,200 sq ft</output></span>
+          <input type="range" id="area" min="200" max="5000" step="50" value="1200">
+        </label>
+        <fieldset class="chips">
+          <legend>What goes in it</legend>
+          <label><input type="checkbox" value="sod" checked><span>New lawn (sod)</span></label>
+          <label><input type="checkbox" value="native"><span>Drought-tolerant plants</span></label>
+          <label><input type="checkbox" value="drip" checked><span>Drip irrigation</span></label>
+          <label><input type="checkbox" value="patio"><span>Paver patio</span></label>
+          <label><input type="checkbox" value="lights"><span>Path and tree lighting</span></label>
+          <label><input type="checkbox" value="cleanup"><span>Clear-out and haul away</span></label>
+        </fieldset>
+      </form>
+      <div class="result" aria-live="polite">
+        <p class="result-label">Your yard, roughly</p>
+        <p class="result-big" id="priceRange">$5,800 to $9,900</p>
+        <p class="result-note" id="priceTime">About 2 weeks of work once we start.</p>
+        <ul class="result-lines" id="priceLines"></ul>
+        <button class="btn btn-solid" data-book data-from-price>Book a walkthrough for this yard</button>
+        <p class="fine">Example pricing for this demo site.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool 2: water bill -->
+  <section class="tool tool-water" id="water">
+    <div class="tool-head">
+      <h2>What your lawn costs to water</h2>
+      <p>A thirsty Central Coast lawn drinks about 22 gallons per square foot every year. Here is yours.</p>
+    </div>
+    <div class="tool-body">
+      <form class="tool-form" onsubmit="return false">
+        <label class="field">
+          <span class="field-row"><span>Lawn size</span><output id="lawnOut">1,000 sq ft</output></span>
+          <input type="range" id="lawn" min="200" max="4000" step="50" value="1000">
+        </label>
+        <div class="bars" aria-hidden="true">
+          <div class="bar-row"><span>Lawn today</span><span class="wbar"><span class="bar-fill bar-now"></span></span></div>
+          <div class="bar-row"><span>Drought-tolerant</span><span class="wbar"><span class="bar-fill bar-after"></span></span></div>
+        </div>
+      </form>
+      <div class="result" aria-live="polite">
+        <p class="result-label">Every year, that lawn uses</p>
+        <p class="result-big"><span id="gal">22,000</span> gallons</p>
+        <p class="result-note">About <strong id="cost">$330</strong> on your water bill. Swap it for low-water planting and you keep about <strong id="save">$250</strong> of that a year.</p>
+        <button class="btn btn-solid" data-book data-from-water>Show me what it could look like</button>
+        <p class="fine">Example math at 1.5 cents a gallon and 75% less water after the swap.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="close">
+    <h2>We walk the yard with you, free.</h2>
+    <p>Twenty minutes, a tape measure and a straight price. No pressure to book.</p>
+    <button class="btn btn-solid" data-book>Book a free walkthrough</button>
+    <p class="area-list">Serving San Luis Obispo, Arroyo Grande, Pismo Beach, Grover Beach, Avila Beach, Los Osos, Morro Bay, Atascadero and Templeton.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Chaparral Yard Co. is an example business. Photos are public domain.</span>
+  <span>(805) 555-0142</span>
+</footer>
+
+<!-- Booking panel -->
+<div class="book-scrim" hidden></div>
+<aside class="book" role="dialog" aria-modal="true" aria-labelledby="bookTitle" hidden>
+  <button class="book-close" type="button" aria-label="Close">&times;</button>
+  <form class="book-form" id="bookForm">
+    <h2 id="bookTitle">Book a free walkthrough</h2>
+    <p class="book-from" id="bookFrom" hidden></p>
+    <fieldset class="chips">
+      <legend>What do you want done?</legend>
+      <label><input type="checkbox" name="want" value="Lawn"><span>Lawn</span></label>
+      <label><input type="checkbox" name="want" value="Drought-tolerant"><span>Drought-tolerant</span></label>
+      <label><input type="checkbox" name="want" value="Patio"><span>Patio</span></label>
+      <label><input type="checkbox" name="want" value="Lighting"><span>Lighting</span></label>
+      <label><input type="checkbox" name="want" value="Upkeep"><span>Weekly upkeep</span></label>
+    </fieldset>
+    <fieldset class="chips days">
+      <legend>Best day for us to come by</legend>
+      <label><input type="radio" name="day" value="Mon" checked><span>Mon</span></label>
+      <label><input type="radio" name="day" value="Tue"><span>Tue</span></label>
+      <label><input type="radio" name="day" value="Wed"><span>Wed</span></label>
+      <label><input type="radio" name="day" value="Thu"><span>Thu</span></label>
+      <label><input type="radio" name="day" value="Fri"><span>Fri</span></label>
+      <label><input type="radio" name="day" value="Sat"><span>Sat</span></label>
+    </fieldset>
+    <label class="field"><span>Your name</span><input name="name" autocomplete="name" required></label>
+    <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
+    <label class="field"><span>Town</span>
+      <select name="town">
+        <option>San Luis Obispo</option><option>Arroyo Grande</option><option>Pismo Beach</option>
+        <option>Grover Beach</option><option>Avila Beach</option><option>Los Osos</option>
+        <option>Morro Bay</option><option>Atascadero</option><option>Templeton</option>
+      </select>
+    </label>
+    <p class="form-error" id="bookError" hidden></p>
+    <button class="btn btn-solid btn-wide" type="submit">Request walkthrough</button>
+    <p class="fine">Example form: nothing is sent from this demo.</p>
+  </form>
+  <div class="book-done" hidden>
+    <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29"/><path d="M19 33l9 9 18-19"/></svg>
+    <h2>Walkthrough requested</h2>
+    <p id="doneText"></p>
+    <button class="btn btn-ghost-dark book-close-2" type="button">Back to the site</button>
+  </div>
+</aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
